@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   def index
 
   end
+
   def new
     @group = Group.new
     @group.users << current_user
@@ -26,6 +27,8 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
+
+
 
   private
   def group_params

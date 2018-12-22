@@ -1,44 +1,45 @@
 .notification
 
 
+
 .side
-  .side__user
-    .side__user-content
-      .side__user-name
-        name
+  = render 'shared/side_bar'
+  / .side__user
+  /   .side__user-content
+  /     .side__user-name
+  /       = current_user.name
 
-      = link_to "", class: "side__user--edit-user" do
-        %i{ class: "fa fa-edit" }
+  /     = link_to "", class: "side__user--edit-user" do
+  /       %i{ class: "fa fa-edit" }
 
-      = link_to "", class: "side__user--new-group" do
-        %i{ class: "fa fa-cog" }
+  /     = link_to "", class: "side__user--new-group" do
+  /       %i{ class: "fa fa-cog" }
 
-  .side__groups
-    .side__groups-list
-      .side__group
-        .side__group-name
-          group-name
-        .side__group-messeage
-          text
+  / .side__groups
+  /   .side__groups-list
+  /     .side__group
+  /       .side__group-name
+  /         group-name
+  /       .side__group-messeage
+  /         text
 
 
 .main
   .main__header
     .main__header--group.clearfix
       .main__header--group-name
-        group-name
+        = @group.name
 
-      = link_to "", class: "main__header--group-edit" do
+      = link_to edit_group_path(@group.id), class: "main__header--group-edit" do
         edit
 
     .main__header-members
-      menbers
-
+      MEMBER:
+      - @users.each do |user|
+        = user.name + ","
 
   .main__body
     = render @messages
-
-
 
 
 
