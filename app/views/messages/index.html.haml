@@ -43,12 +43,20 @@
         .main__body--message-body
           message
 
-  .main__footer
-    %form{ action: "", class: "main__footer-form" }
-      .main__footer-body
-        %input{ placeholder: "type a message", class: "main__footer-body-message" }
-        %label{ class: "main__footer-body-file" }
-          %input{ type: "file", class: "file", id: "" }
-          %i{ class: "fa fa-image" }
-        %input{ type: "submit", class: "main__footer-body-submit", value: "Send" }
+  / .main__footer
+  /   %form{ action: "", class: "main__footer-form" }
+  /     .main__footer-body
+  /       %input{ placeholder: "type a message", class: "main__footer-body-message" }
+  /       %label{ class: "main__footer-body-file" }
+  /         %input{ type: "file", class: "file", id: "" }
+  /         %i{ class: "fa fa-image" }
+  /       %input{ type: "submit", class: "main__footer-body-submit", value: "Send" }
 
+  .main__footer
+    = form_for [@group, @message], class: "main__footer-form" do |f|
+      .main__footer-body
+        = f.text_field :content, class: 'main__footer-body-message', placeholder: 'type a message'
+        = f.label :image, class: 'main__footer-body-file' do
+          = fa_icon 'picture-o', class: 'fa-image'
+          = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'main__footer-body-submit'
