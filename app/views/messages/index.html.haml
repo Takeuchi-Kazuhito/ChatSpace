@@ -33,24 +33,14 @@
 
     .main__header-members
       menbers
-  .main__body
-    .main__body--messages-list
-      .main__body--message.clearfix
-        .main__body--message-name
-          name
-        .main__body--message-time
-          time
-        .main__body--message-body
-          message
 
-  / .main__footer
-  /   %form{ action: "", class: "main__footer-form" }
-  /     .main__footer-body
-  /       %input{ placeholder: "type a message", class: "main__footer-body-message" }
-  /       %label{ class: "main__footer-body-file" }
-  /         %input{ type: "file", class: "file", id: "" }
-  /         %i{ class: "fa fa-image" }
-  /       %input{ type: "submit", class: "main__footer-body-submit", value: "Send" }
+
+  .main__body
+    = render @messages
+
+
+
+
 
   .main__footer
     = form_for [@group, @message], class: "main__footer-form" do |f|
