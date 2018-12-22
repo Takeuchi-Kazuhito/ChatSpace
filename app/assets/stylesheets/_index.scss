@@ -169,7 +169,7 @@
   &__footer-body-message {
     height: 50px;
     width: 80%;
-    margin: 20px 0;
+    margin: 20px 20px;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -183,6 +183,7 @@
     position: absolute;
     top: 0;
     right: 200px;
+
 
     .file {
       display: none;
@@ -199,7 +200,7 @@
 
   &__footer-body-submit {
     height: 50px;
-    margin: 20px 0;
+    margin: 20px 60px 20px 20px;
     padding: 0 20px;
     color: white;
     background-color: #38AEF0;
@@ -208,3 +209,5 @@
   }
 
 }
+
+

@@ -1,54 +1,53 @@
 .notification
 
 
+
 .side
-  .side__user
-    .side__user-content
-      .side__user-name
-        name
+  = render 'shared/side_bar'
+  / .side__user
+  /   .side__user-content
+  /     .side__user-name
+  /       = current_user.name
 
-      = link_to "", class: "side__user--edit-user" do
-        %i{ class: "fa fa-edit" }
+  /     = link_to "", class: "side__user--edit-user" do
+  /       %i{ class: "fa fa-edit" }
 
-      = link_to "", class: "side__user--new-group" do
-        %i{ class: "fa fa-cog" }
+  /     = link_to "", class: "side__user--new-group" do
+  /       %i{ class: "fa fa-cog" }
 
-  .side__groups
-    .side__groups-list
-      .side__group
-        .side__group-name
-          group-name
-        .side__group-messeage
-          text
+  / .side__groups
+  /   .side__groups-list
+  /     .side__group
+  /       .side__group-name
+  /         group-name
+  /       .side__group-messeage
+  /         text
 
 
 .main
   .main__header
     .main__header--group.clearfix
       .main__header--group-name
-        group-name
+        = @group.name
 
-      = link_to "", class: "main__header--group-edit" do
+      = link_to edit_group_path(@group.id), class: "main__header--group-edit" do
         edit
 
     .main__header-members
-      menbers
+      MEMBER:
+      - @users.each do |user|
+        = user.name + ","
+
   .main__body
-    .main__body--messages-list
-      .main__body--message.clearfix
-        .main__body--message-name
-          name
-        .main__body--message-time
-          time
-        .main__body--message-body
-          message
+    = render @messages
+
+
 
   .main__footer
-    %form{ action: "", class: "main__footer-form" }
+    = form_for [@group, @message], class: "main__footer-form" do |f|
       .main__footer-body
-        %input{ placeholder: "type a message", class: "main__footer-body-message" }
-        %label{ class: "main__footer-body-file" }
-          %input{ type: "file", class: "file", id: "" }
-          %i{ class: "fa fa-image" }
-        %input{ type: "submit", class: "main__footer-body-submit", value: "Send" }
-
+        = f.text_field :content, class: 'main__footer-body-message', placeholder: 'type a message'
+        = f.label :image, class: 'main__footer-body-file' do
+          = fa_icon 'picture-o', class: 'fa-image'
+          = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'main__footer-body-submit'
