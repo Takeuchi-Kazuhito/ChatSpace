@@ -43,8 +43,9 @@
 
 
 
+
   .main__footer
-    = form_for [@group, @message], class: "main__footer-form" do |f|
+    = form_for [@group, @message], class: "main__footer-form", id: "new_message" do |f|
       .main__footer-body
         = f.text_field :content, class: 'main__footer-body-message', placeholder: 'type a message'
         = f.label :image, class: 'main__footer-body-file' do

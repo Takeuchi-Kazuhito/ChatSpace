@@ -119,7 +119,7 @@
   &__body {
     padding: 40px 0 0 0;
     height: calc( 100vh - 15% - 90px );
-    // background-color: #AAAAAA;
+    overflow: scroll;
 
     &--messages-list {
       margin: 0 40px;
