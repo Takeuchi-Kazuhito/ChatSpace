@@ -44,7 +44,8 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__body').append(html)
-      $('.main__footer-body-message').val('')
+      var element = document.getElementById('new_message');
+      element.reset();
       $('.main__footer-body-submit').prop('disabled', false);
       $('.main__body').animate({scrollTop:$('.main__body')[0].scrollHeight});
     })
