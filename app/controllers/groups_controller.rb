@@ -20,9 +20,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def edit
-    @members = @group.users
-  end
 
   def update
     if @group.update(group_params)
