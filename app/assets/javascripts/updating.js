@@ -34,7 +34,7 @@ $(function(){
 
 
   function update(){
-    var lastMessageId = $('.main__body--messages-list:last').attr('data-message-id');
+    var lastMessageId = $('.main__body--messages-list:last').data('message-id');
     $.ajax({
       url: location.href,
       type: 'GET',
