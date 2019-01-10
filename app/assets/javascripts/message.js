@@ -8,7 +8,7 @@ $(function(){
     }
 
 
-    var html =   `<div class="main__body--messages-list">
+    var html =   `<div class="main__body--messages-list" data-message-id=${ data.messageId }>
                     <div class="main__body--message clearfix">
                       <div class="main__body--message-name">
                         ${ data.name }
@@ -32,7 +32,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
