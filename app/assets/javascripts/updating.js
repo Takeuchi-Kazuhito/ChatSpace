@@ -2,9 +2,9 @@ $(function(){
 
   function buildHTML(message){
 
-    var imageA = ""
+    var messageImage = ""
     if(message.image === undefined){
-      imageA = `<img class="lower-message__image" src="${ message.image }">`
+      messageImage = `<img class="lower-message__image" src="${ message.image }">`
     }
 
     var html =   `<div class="main__body--messages-list" data-message-id=${ message.messageId }>
@@ -19,7 +19,7 @@ $(function(){
                           <p class="lower-message__content">
                             ${ message.content }
                           </p>
-                          ${ imageA }
+                          ${ messageImage }
                       </div>
                     </div>
                   </div>`
