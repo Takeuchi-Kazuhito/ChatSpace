@@ -2,13 +2,13 @@ $(function(){
 
   function buildHTML(data){
 
-    var imageA = ""
+    var messageImage = ""
     if(data.image === undefined){
-      imageA = `<img class="lower-message__image" src="${ data.image }">`
+      messageImage = `<img class="lower-message__image" src="${ data.image }">`
     }
 
 
-    var html =   `<div class="main__body--messages-list">
+    var html =   `<div class="main__body--messages-list" data-message-id=${ data.messageId }>
                     <div class="main__body--message clearfix">
                       <div class="main__body--message-name">
                         ${ data.name }
@@ -20,7 +20,7 @@ $(function(){
                           <p class="lower-message__content">
                             ${ data.content }
                           </p>
-                          ${ imageA }
+                          ${ messageImage }
                       </div>
                     </div>
                   </div>`
@@ -32,7 +32,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
